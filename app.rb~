@@ -38,6 +38,6 @@ post '/loop' do
 			end
 		end
 	else
-		redirect_to :action => "/"
+		redirect '/'
 	end
 end	

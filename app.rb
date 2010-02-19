@@ -8,10 +8,21 @@ post '/' do
     xml.Response do 
       xml.Say("Hello hello hello from my stock quote app")
       xml.Gather(:action=>"/reply")  do
-			xml.Say("Please input stock quote, followed by hash")
+			xml.Say("Please enter stock quote followed by hash")
       end
     end
   end
+end
+
+get '/' do
+	builder do |xml|
+		xml.instruct!
+		xml.Response do
+			xml.Gather(:action=>"/reply") do
+				xml.Say("Please enter stock quote followed by hash")
+			end
+		end
+	end
 end
 
 post '/reply' do
