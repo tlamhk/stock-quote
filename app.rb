@@ -18,7 +18,7 @@ post '/reply' do
   builder do |xml|
     xml.instruct!
     xml.Response do
-      stock = params['Digits'] + '.HK'
+      stock = params['Digits'].rjust(4,'0') + '.HK'
       YahooFinance::get_standard_quotes(stock).each do |symbol, quote|
 	xml.Say("#{quote.name} was last traded at #{quote.lastTrade}")
       end
