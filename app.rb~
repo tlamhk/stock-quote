@@ -32,10 +32,11 @@ post '/loop' do
 	builder do |xml|
 		xml.instruct!
 		xml.Response do
-		if params['Digits'] == '1'
-			redirect_to :action => "/"
-		else
-			xml.Say("good bye")
+			if params['Digits'] == '1'
+				redirect_to :action => "/"
+			else
+				xml.Say("good bye")
+			end
 		end
 	end
 end

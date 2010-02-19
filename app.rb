@@ -23,6 +23,7 @@ post '/reply' do
 		  xml.Say("#{quote.name} was last traded at #{quote.lastTrade} dollar")
 		  xml.Gather(:action=>"/loop", :numDigits => 1) do		  
 		  	 xml.Say("Press one to input again or two to end this call")
+		  end
       end
     end
   end
